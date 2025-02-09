@@ -1,0 +1,21 @@
+.input {
+    border-left: 2px solid lightblue;
+    border-right: 2px solid lightblue;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.form img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.submit-button {
+    width: 100%;
+}

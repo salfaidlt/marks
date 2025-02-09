@@ -13,5 +13,13 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-list>
+    @for (mark of marks; track $index) {
+      <ion-item>
+        <ion-label>Awesome Label</ion-label>
+      </ion-item>
+    } @empty {
+      <p>Il n'y a aucune note enregistrée</p>
+    }
+  </ion-list>
 </ion-content>
