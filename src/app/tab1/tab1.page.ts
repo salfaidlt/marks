@@ -77,10 +77,11 @@ export class Tab1Page {
 
   public alertButtons = [
     {
-      text: 'Voir la liste',
+      text: 'OK',
       role: 'confirm',
       handler: () => {
-        this.router.navigate(['/tabs/tab2'])
+        // this.router.navigate(['/tabs/tab2'])
+        window.location.reload()
       },
     },
   ];
