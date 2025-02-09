@@ -17,9 +17,12 @@ export class MarksService {
   }
 
   addStudentMark(mark: Mark): void {
-    const marks = this.getStudentMarks(); // Get existing marks
-    marks.push(mark); // Add the new mark
-    localStorage.setItem('studentMarks', JSON.stringify(marks)); // Save back to local storage
+    const marks = this.getStudentMarks();
+    marks.push(mark);
+    localStorage.setItem('studentMarks', JSON.stringify(marks));
+    console.log('====================================');
+    console.log('added');
+    console.log('====================================');
   }
 
   getStudentMarks(): Mark[] {
@@ -32,14 +35,14 @@ export class MarksService {
     const index = marks.findIndex(mark => mark.id === updatedMark.id);
     if (index !== -1) {
       marks[index] = updatedMark;
-      localStorage.setItem('studentMarks', JSON.stringify(marks)); // Save back to local storage
+      localStorage.setItem('studentMarks', JSON.stringify(marks));
     }
   }
 
   deleteStudentMark(id: string): void {
     let marks = this.getStudentMarks();
-    marks = marks.filter(mark => mark.id !== id); // Filter out the mark
-    localStorage.setItem('studentMarks', JSON.stringify(marks)); // Save back to local storage
+    marks = marks.filter(mark => mark.id !== id);
+    localStorage.setItem('studentMarks', JSON.stringify(marks));
   }
 
   calculateAverageMark(studentName: string): number {

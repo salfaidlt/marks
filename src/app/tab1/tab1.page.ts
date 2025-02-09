@@ -10,8 +10,9 @@ import {
   IonButton
 } from '@ionic/angular/standalone';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
-import {Mark, MarkWithoutId} from '../models/mark';
+import { Mark, MarkWithoutId } from '../models/mark';
 import { isFormOK } from '../utils/utils';
+import { MarksService } from '../services/marks.service';
 
 @Component({
   selector: 'app-tab1',
@@ -38,12 +39,35 @@ export class Tab1Page {
     studentName: new FormControl(''),
   })
 
-  constructor() { }
+  constructor(private markService: MarksService) {
+    this.markForm.controls['score'].addValidators([Validators.required, Validators.min(0)])
+    this.markForm.controls['course'].addValidators([Validators.required])
+    this.markForm.controls['semester'].addValidators([Validators.required])
+    this.markForm.controls['studentName'].addValidators([Validators.required])
+  }
 
   onSubmit() {
-    const formValues: MarkWithoutId | null = this.markForm.value
-    if (isFormOK(formValues)) {
+    const course: string= this.markForm.value.course!
+    const semester: string= this.markForm.value.semester!
+    const score: number= this.markForm.value.score!
+    const studentName: string= this.markForm.value.studentName!
+
+    // const tmpMarkWithoutId = {
+    //   course: course,
+    //   score: score,
+    //   studentName: studentName,
+    //   semester: semester,
+    // }
+    // if (isFormOK(tmpMarkWithoutId)) {
       
+    // }
+    const tmpMark: Mark = {
+      id: Date.now.toString(),
+      course: course,
+      score: score,
+      studentName: studentName,
+      semester: semester,
     }
+    this.markService.addStudentMark(tmpMark)
   }
 }
