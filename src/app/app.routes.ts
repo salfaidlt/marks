@@ -13,4 +13,8 @@ export const routes: Routes = [
     path: 'tab5',
     loadComponent: () => import('./tab5/tab5.page').then( m => m.Tab5Page)
   },
+  {
+    path: 'modifier/:id',
+    loadComponent: () => import('./modifier/modifier.page').then( m => m.ModifierPage)
+  },
 ];

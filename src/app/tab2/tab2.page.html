@@ -16,7 +16,24 @@
   <ion-list>
     @for (mark of marks; track $index) {
       <ion-item>
-        <ion-label>Awesome Label</ion-label>
+        <ion-card class="card-item">
+          <ion-card-header>
+            <ion-card-title> {{ mark.course }} </ion-card-title>
+            <ion-card-subtitle> {{ mark.semester }} </ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <ion-icon name="stats-chart-outline"></ion-icon> L'étudiant a obtenu {{ mark.score }}
+            <div>
+              <ion-button (click)="modifierNote(mark.id)">
+                Modifier
+              </ion-button>
+              <ion-button color="danger" (click)="supprimerNote(mark.id)">
+                Supprimer
+              </ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
       </ion-item>
     } @empty {
       <p>Il n'y a aucune note enregistrée</p>

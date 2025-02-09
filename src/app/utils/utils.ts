@@ -5,8 +5,7 @@ export const isFormOK = (formValues: MarkWithoutId | null) => {
         formValues === null ||
         formValues.course === '' || 
         formValues.score === 0 || 
-        formValues.semester === '' || 
-        formValues.studentName === ''
+        formValues.semester === ''
     ) {
         return false
     } else {

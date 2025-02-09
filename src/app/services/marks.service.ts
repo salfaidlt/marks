@@ -39,18 +39,23 @@ export class MarksService {
     }
   }
 
+  getOneMark(id: string): Mark | undefined {
+    const marks = this.getStudentMarks();
+    return marks.find(mark => mark.id === id);
+  }
+
   deleteStudentMark(id: string): void {
     let marks = this.getStudentMarks();
     marks = marks.filter(mark => mark.id !== id);
     localStorage.setItem('studentMarks', JSON.stringify(marks));
   }
 
-  calculateAverageMark(studentName: string): number {
-    const marks = this.getStudentMarks();
-    const studentMarks = marks.filter(mark => mark.studentName === studentName);
-    if (studentMarks.length === 0) return 0;
+  // calculateAverageMark(studentName: string): number {
+  //   // const marks = this.getStudentMarks();
+  //   // const studentMarks = marks.filter(mark => mark.studentName === studentName);
+  //   // if (studentMarks.length === 0) return 0;
   
-    const totalMarks = studentMarks.reduce((sum, mark) => sum + mark.score, 0);
-    return totalMarks / studentMarks.length;
-  }
+  //   // const totalMarks = studentMarks.reduce((sum, mark) => sum + mark.score, 0);
+  //   // return totalMarks / studentMarks.length;
+  // }
 }

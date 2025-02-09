@@ -18,12 +18,11 @@
       <img src="https://images.unsplash.com/vector-1738934022251-99db21cf61fd?q=80&w=1800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image d'illustration">
       <ion-input class="input" formControlName="score" label="Score" labelPlacement="floating" placeholder="Saisir la note" type="number"></ion-input>
       <ion-input class="input" label="Course" formControlName="course" labelPlacement="floating" placeholder="Saisir le cours" type="text"></ion-input>
-      <ion-input class="input" label="Student name" formControlName="studentName" labelPlacement="floating" placeholder="Saisir le nom de l'étudiant" type="text"></ion-input>
       <ion-select class="input" label="Semestre" formControlName="semester" label-placement="floating">
         <ion-select-option value="semestre 9">Semestre 9</ion-select-option>
         <ion-select-option value="semestre 10">Semestre 10</ion-select-option>
       </ion-select>
-      <ion-button type="submit" class="submit-button" color="medium" [disabled]="!markForm.valid" expand="full">Ajouter</ion-button>
+      <ion-button (click)="presentAlert()" type="submit" class="submit-button" color="medium" [disabled]="!markForm.valid" expand="full">Ajouter</ion-button>
     </form>
   </div>
 </ion-content>
